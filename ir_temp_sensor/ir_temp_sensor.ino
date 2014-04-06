@@ -68,7 +68,7 @@ void loop() {
   } else if (mlx.readObjectTempF() > 100) {
     servo.writeMicroseconds(1300); // Clockwise
     servo.write(80);
-    if (servo2Moved == 0) {
+    if (mlx.readObjectTempF() > 130 && servo2Moved == 0) {
       //servo2.writeMicroseconds(1300); // Clockwise
       servo2.write(100);
       servo2Moved = 1;
