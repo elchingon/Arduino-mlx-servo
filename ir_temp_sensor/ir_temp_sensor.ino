@@ -63,13 +63,11 @@ void loop() {
   
   if (mlx.readObjectTempF() > 71 && mlx.readObjectTempF() < 100) {
     servo.writeMicroseconds(1300); // Clockwise
-    //servo2.writeMicroseconds(1500); // Stop
     servo.write(90);
   } else if (mlx.readObjectTempF() > 100) {
     servo.writeMicroseconds(1300); // Clockwise
     servo.write(80);
     if (mlx.readObjectTempF() > 130 && servo2Moved == 0) {
-      //servo2.writeMicroseconds(1300); // Clockwise
       servo2.write(100);
       servo2Moved = 1;
     } else {
@@ -78,7 +76,7 @@ void loop() {
       
   } else {
     if (servo2Moved == 1) {
-      servo2.writeMicroseconds(1700); // Stop
+      servo2.writeMicroseconds(1700); // Counter-clockwise
       servo2.write(80);
       servo2Moved = 0;
     } else {
